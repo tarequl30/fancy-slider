@@ -5,7 +5,7 @@ const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const searchArea = document.getElementById("search");
-const refreshButton = document.getElementById("refreshButton");
+const homeButton = document.getElementById("homeButton");
 // selected image 
 let sliders = [];
 
@@ -13,11 +13,14 @@ let sliders = [];
 //api Key
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
-//refresh
-refreshButton.addEventListener("click", function(){
+//home button
+homeButton.addEventListener("click", function(){
   imagesArea.style.display = 'none';
 })
-
+homeButton.addEventListener("click", function(){
+  document.querySelector('.main').style.display = 'none';
+  clearInterval(timer);
+})
 // show images 
 const showImages = (images) => {
   imagesArea.style.display = 'block';
@@ -38,6 +41,7 @@ searchArea.addEventListener("keypress", function(event){
         searchBtn.click();
       }
 });
+
 const getImages = (query) => {
   toggleSpinner();
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
