@@ -5,12 +5,18 @@ const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const searchArea = document.getElementById("search");
+const refreshButton = document.getElementById("refreshButton");
 // selected image 
 let sliders = [];
 
 
 //api Key
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
+
+//refresh
+refreshButton.addEventListener("click", function(){
+  imagesArea.style.display = 'none';
+})
 
 // show images 
 const showImages = (images) => {
